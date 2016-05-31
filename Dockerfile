@@ -19,7 +19,8 @@ RUN ./dl.sh
 
 ################## BEGIN INSTALLATION #########################
 RUN dpkg -i dvblink-server-pc-linux-ubuntu-64bit.deb
-RUN chmod 777 /opt/DVBLink/
+RUN chmod 777 -R /opt/DVBLink/
+RUN chmod 777 -R /usr/local/bin/dvblink/
 RUN mkdir -p /var/log/supervisord
 RUN mkdir -p /var/run/sshd
 RUN locale-gen en_US.utf8
