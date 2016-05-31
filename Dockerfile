@@ -11,8 +11,7 @@ MAINTAINER chvb
 # Update the repository sources list 
 RUN apt-get update -q
 RUN apt-get upgrade -qy
-RUN apt-get install lsof sysstat wget openssh-server supervisor dbus dbus-x11 consolekit dbus libck-connector0 libpam-ck-connector libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0
-  policykit-1 python-aptdaemon python-aptdaemon.pkcompat python-defer python-packagekit python-pkg-resources -qy 
+RUN apt-get install lsof sysstat wget openssh-server supervisor dbus dbus-x11 -qy 
 RUN echo "wget -O dvblink-server-pc-linux-ubuntu-64bit.deb http://download.dvblogic.com/07ba373c2cca390eea6ee59f6a5b35a9/" > dl.sh
 RUN chmod +x dl.sh 
 RUN ./dl.sh
