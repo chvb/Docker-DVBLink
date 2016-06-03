@@ -32,7 +32,7 @@ ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.c
 
 
 # Expose the default portonly 39876 is nessecary for admin access 
- EXPOSE 22 39876 
+ EXPOSE 22 39876 8100
  
 VOLUME /config
 
