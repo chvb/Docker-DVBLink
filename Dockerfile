@@ -34,10 +34,8 @@ ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.c
 # Expose the default portonly 39876 is nessecary for admin access 
  EXPOSE 22 39876 8100
  
-VOLUME /config
+VOLUME /backup
 VOLUME /recordings
-# RUN ln -s /config /usr/local/bin/dvblink
-RUN ln -s /recordings /usr/local/bin/dvblink/share/RecordedTV
 
 # Start dbus and DVBLink
 CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"] 
