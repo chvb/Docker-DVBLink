@@ -37,5 +37,6 @@ ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.c
 VOLUME /recordings
 
 # Start dbus and DVBLink
+ENTRYPOINT ["/usr/bin/supervisord"]
 CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"] 
-CMD dbus-daemon --system && /usr/local/bin/dvblink/start.sh
+# CMD dbus-daemon --system && /usr/local/bin/dvblink/start.sh
