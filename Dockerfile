@@ -31,6 +31,10 @@ ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.c
 ADD /config/dvblink_channel_storage.xml /config/dvblink_channel_storage.xml
 ADD /config/dvblink_configuration.xml /config/dvblink_configuration.xml
 ADD /config/dvblink_settings.xml /config/dvblink_settings.xml
+ADD /logs/dvblink_install.log /logs/dvblink_install.log
+ADD /logs/dvblink_reg.log /logs/dvblink_reg.log
+ADD /logs/dvblink_server.log /logs/dvblink_server.log
+ADD /logs/dvblink_webserver.log /logs/dvblink_webserver.log
 ##################### INSTALLATION END #####################
 
 # set directory for the configuration & log files
