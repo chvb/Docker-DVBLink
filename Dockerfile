@@ -28,10 +28,16 @@ RUN locale-gen en_US.utf8
 RUN useradd docker -d /home/docker -g users -G sudo -m                                                                                                                    
 RUN echo docker:test123 | chpasswd
 ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+ADD /config/dvblink_channel_storage.xml /config/dvblink_channel_storage.xml
+ADD /config/dvblink_configuration.xml /config/dvblink_configuration.xml
+ADD /config/dvblink_settings.xml /config/dvblink_settings.xml
 ##################### INSTALLATION END #####################
 
 # set directory for the configuration & log files
 RUN \
+rm /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
+rm /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
+rm /usr/local/bin/dvblink/config/dvblink_settings.xml && \
 ln -s /config/dvblink_channel_storage.xml /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
 ln -s /config/dvblink_configuration.xml /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
 ln -s /config/dvblink_settings.xml /usr/local/bin/dvblink/config/dvblink_settings.xml && \
