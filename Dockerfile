@@ -41,10 +41,10 @@ rm /usr/local/bin/dvblink/config/dvblink_settings.xml && \
 ln -s /config/dvblink_channel_storage.xml /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
 ln -s /config/dvblink_configuration.xml /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
 ln -s /config/dvblink_settings.xml /usr/local/bin/dvblink/config/dvblink_settings.xml && \
-ln -s /usr/local/bin/dvblink/dvblink_install.log /logs && \
-ln -s /usr/local/bin/dvblink/dvblink_reg.log /logs && \
-ln -s /usr/local/bin/dvblink/dvblink_server.log /logs && \
-ln -s /usr/local/bin/dvblink/dvblink_webserver.log /logs
+ln -sf /logs /usr/local/bin/dvblink/dvblink_install.log && \
+ln -sf /logs /usr/local/bin/dvblink/dvblink_reg.log && \
+ln -sf /logs /usr/local/bin/dvblink/dvblink_server.log && \
+ln -sf /logs /usr/local/bin/dvblink/dvblink_webserver.log
 
 # Expose the default portonly 39876 is nessecary for admin access 
 EXPOSE 22 39876 8100
