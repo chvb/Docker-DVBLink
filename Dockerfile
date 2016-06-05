@@ -18,6 +18,7 @@ RUN chmod +x dl.sh
 RUN ./dl.sh
 
 # set directory for the configuration & log files
+RUN \
 ln -s /config/dvblink_channel_storage.xml /usr/local/bin/dvblink/config/dvblink_channel_storage.xml
 ln -s /config/dvblink_configuration.xml /usr/local/bin/dvblink/config/dvblink_configuration.xml
 ln -s /config/dvblink_settings.xml /usr/local/bin/dvblink/config/dvblink_settings.xml
