@@ -38,9 +38,9 @@ RUN \
 rm /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
 rm /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
 rm /usr/local/bin/dvblink/config/dvblink_settings.xml && \
-ln -s /config/dvblink_channel_storage.xml /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
-ln -s /config/dvblink_configuration.xml /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
-ln -s /config/dvblink_settings.xml /usr/local/bin/dvblink/config/dvblink_settings.xml && \
+ln /config/dvblink_channel_storage.xml /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
+ln /config/dvblink_configuration.xml /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
+ln /config/dvblink_settings.xml /usr/local/bin/dvblink/config/dvblink_settings.xml && \
 ln -sf /logs /usr/local/bin/dvblink/dvblink_install.log && \
 ln -sf /logs /usr/local/bin/dvblink/dvblink_reg.log && \
 ln -sf /logs /usr/local/bin/dvblink/dvblink_server.log && \
