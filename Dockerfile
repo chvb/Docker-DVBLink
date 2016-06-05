@@ -27,6 +27,7 @@ RUN mkdir /var/run/dbus
 RUN locale-gen en_US.utf8
 RUN useradd docker -d /home/docker -g users -G sudo -m                                                                                                                    
 RUN echo docker:test123 | chpasswd
+ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 ##################### INSTALLATION END #####################
 
 # Expose the default portonly 39876 is nessecary for admin access 
