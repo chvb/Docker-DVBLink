@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<dvblink_configuration>
-  <addin_language_path>language</addin_language_path>
-  <address>127.0.0.1</address>
-  <base_port>39876</base_port>
-  <install_path>/usr/local/bin/dvblink</install_path>
-  <language>en.xml</language>
-  <server_id>348f1e72-a4c0-466d-937b-bb3ef932f372</server_id>
-</dvblink_configuration>
