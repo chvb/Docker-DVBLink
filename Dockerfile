@@ -27,24 +27,7 @@ RUN mkdir /var/run/dbus
 RUN locale-gen en_US.utf8
 RUN useradd docker -d /home/docker -g users -G sudo -m                                                                                                                    
 RUN echo docker:test123 | chpasswd
-ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
-ADD /config/dvblink_channel_storage.xml /config/dvblink_channel_storage.xml
-ADD /config/dvblink_configuration.xml /config/dvblink_configuration.xml
-ADD /config/dvblink_settings.xml /config/dvblink_settings.xml
 ##################### INSTALLATION END #####################
-
-# set directory for the configuration & log files
-RUN \
-rm /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
-rm /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
-rm /usr/local/bin/dvblink/config/dvblink_settings.xml && \
-ln /config/dvblink_channel_storage.xml /usr/local/bin/dvblink/config/dvblink_channel_storage.xml && \
-ln /config/dvblink_configuration.xml /usr/local/bin/dvblink/config/dvblink_configuration.xml && \
-ln /config/dvblink_settings.xml /usr/local/bin/dvblink/config/dvblink_settings.xml && \
-ln -sf /logs /usr/local/bin/dvblink/dvblink_install.log && \
-ln -sf /logs /usr/local/bin/dvblink/dvblink_reg.log && \
-ln -sf /logs /usr/local/bin/dvblink/dvblink_server.log && \
-ln -sf /logs /usr/local/bin/dvblink/dvblink_webserver.log
 
 # Expose the default portonly 39876 is nessecary for admin access 
 EXPOSE 22 39876 8100
