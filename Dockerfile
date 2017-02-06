@@ -10,8 +10,10 @@ MAINTAINER chvb
 # Update the repository sources list 
 RUN apt-get update -q
 RUN apt-get upgrade -qy
+
 # Install needed components
 RUN apt-get install lsof sysstat wget openssh-server supervisor dbus dbus-x11 consolekit libpolkit-agent-1-0 libpolkit-backend-1-0 policykit-1 python-aptdaemon python-pycurl python3-aptdaemon.pkcompat -qy 
+
 #download DVBLink
 RUN echo "wget -O dvblink-server-pc-linux-ubuntu-64bit.deb http://download.dvblogic.com/9283649d35acc98ccf4d0c2287cdee62/" > dl.sh
 RUN chmod +x dl.sh 
@@ -30,12 +32,18 @@ RUN echo docker:test123 | chpasswd
 ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 ##################### INSTALLATION END #####################
 
-# Expose the default portonly 39876 is nessecary for admin access 
-EXPOSE 22 39876 8100
+## Data
+RUN ln -s /opt/DVBLink /data
 
-# set Directories
-VOLUME ["/config", "/recordings", "/logs"]
+## Config
+RUN ln -s /usr/local/bin/dvblink/config /config
 
 # Startup
 ENTRYPOINT ["/usr/bin/supervisord"]
 CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
+# Expose the default portonly 39876 is nessecary for admin access 
+EXPOSE 22 39876 8100
+
+# set Directories
+VOLUME ["/config", "/recordings", "/data"]
