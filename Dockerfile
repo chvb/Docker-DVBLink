@@ -17,8 +17,6 @@ RUN apt-get install lsof sysstat wget openssh-server supervisor dbus dbus-x11 co
 ## Data
 RUN ln -s /opt/DVBLink /data
 
-## Config
-RUN ln -s /usr/local/bin/dvblink/config /config
 
 #download DVBLink
 RUN echo "wget -O dvblink-server-pc-linux-ubuntu-64bit.deb http://download.dvblogic.com/9283649d35acc98ccf4d0c2287cdee62/" > dl.sh
@@ -38,6 +36,9 @@ RUN echo docker:test123 | chpasswd
 ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 ##################### INSTALLATION END #####################
 
+## Prepare start ##
+RUN mkdir /opt-start && mv /usr/local/bin/dvblink /opt-start
+
 # Startup
 ENTRYPOINT ["/usr/bin/supervisord"]
 CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"]
@@ -46,4 +47,4 @@ CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"]
 EXPOSE 22 39876 8100
 
 # set Directories
-VOLUME ["/config", "/recordings", "/data"]
+VOLUME ["//usr/local/bin/dvblink", "/recordings", "/data"]
