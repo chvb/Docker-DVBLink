@@ -1,7 +1,9 @@
 #!/bin/bash
 
 chmod -R 777 /opt/DVBLink
+chmod -R 777 /usr/local/bin/dvblink
 chmod -R 777 /opt-start/DVBLink
+chmod -R 777 /opt-start/dvblink
 
 # Prepare DVBLink bin
 if [ -z "`ls /usr/local/bin/dvblink --hide='lost+found'`" ]
