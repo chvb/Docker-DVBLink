@@ -22,7 +22,10 @@ RUN locale-gen en_US.utf8
 RUN useradd docker -d /home/docker -g users -G sudo -m                                                                                                                    
 RUN echo docker:test123 | chpasswd
 ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+
+## DVBLink start script
 ADD /etc/init.d/dvblink.sh /etc/init.d/dvblink.sh
+RUN chmod +x /etc/init.d/dvblink.sh
 
 ## Prepare start ##
 RUN mkdir /opt-start && mv /usr/local/bin/dvblink /opt-start
