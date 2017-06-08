@@ -10,6 +10,16 @@ then
 	cp -Rn /opt-start/dvblink/* /usr/local/bin/dvblink/
 fi
 
+# Prepare DVBLink bin
+if [ -z "`ls /opt/DVBLink --hide='lost+found'`" ]
+then
+	cp -R /opt-start2/dvblink/* /opt/DVBLink
+fi
+if [ ! -f "/opt/DVBLink/data/database/dlrecorder.db" ]
+then
+	cp -Rn /opt-start2/dvblink/* /opt/DVBLink/
+fi
+
 # Start
 /usr/local/bin/dvblink/start.sh
 bash
