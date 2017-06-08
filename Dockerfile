@@ -5,12 +5,18 @@ FROM ubuntu:14.04
 MAINTAINER chvb
 
 # Update and install files
-RUN apt-get update && apt-get install lsof sysstat wget openssh-server supervisor dbus dbus-x11 consolekit libpolkit-agent-1-0 libpolkit-backend-1-0 policykit-1 python-aptdaemon python-pycurl python3-aptdaemon.pkcompat -qy 
+RUN apt-get update && apt-get install lsof sysstat wget iproute2 iputils-ping openssh-server supervisor dbus dbus-x11 consolekit libpolkit-agent-1-0 libpolkit-backend-1-0 policykit-1 python-aptdaemon python-pycurl python3-aptdaemon.pkcompat -qy 
 
 ## download and install DVBLink
 RUN wget -O dvblink-server-pc-linux-ubuntu-64bit.deb http://download.dvblogic.com/9283649d35acc98ccf4d0c2287cdee62/ && \
     dpkg -i dvblink-server-pc-linux-ubuntu-64bit.deb && apt-get install -f && rm -f dvblink-server-pc-linux-ubuntu-64bit.deb
 
+# cleanup
+ rm -rf \
+	/tmp/* \
+	/var/lib/apt/lists/* \
+	/var/tmp/*
+    
 ## Openssh Server and supervisord
 RUN mkdir -p /var/log/supervisord
 RUN mkdir -p /var/run/sshd
