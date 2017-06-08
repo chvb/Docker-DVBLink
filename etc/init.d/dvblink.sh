@@ -5,9 +5,9 @@ if [ -z "`ls /usr/local/bin/dvblink --hide='lost+found'`" ]
 then
 	cp -R /opt-start/dvblink/* /usr/local/bin/dvblink
 fi
-if [ ! -f "/usr/local/bin/dvblink/start.sh" ]
+if [ ! -f "/usr/local/bin/dvblink/dvblink_server" ]
 then
-	cp -Rn /opt-start/dvblink/* /usr/local/bin/dvblink
+	cp -Rn /opt-start/dvblink/* /usr/local/bin/dvblink/
 fi
 
 # Start
