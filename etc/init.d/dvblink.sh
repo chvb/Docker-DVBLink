@@ -1,5 +1,8 @@
 #!/bin/bash
 
+chmod -R 777 /opt/DVBLink
+chmod -R 777 /opt-start/DVBLink
+
 # Prepare DVBLink bin
 if [ -z "`ls /usr/local/bin/dvblink --hide='lost+found'`" ]
 then
@@ -13,11 +16,11 @@ fi
 # Prepare DVBLink bin
 if [ -z "`ls /opt/DVBLink --hide='lost+found'`" ]
 then
-	cp -R /opt-start2/dvblink/* /opt/DVBLink
+	cp -R /opt-start/DVBLink/* /opt/DVBLink
 fi
 if [ ! -f "/opt/DVBLink/data/database/dlrecorder.db" ]
 then
-	cp -Rn /opt-start2/dvblink/* /opt/DVBLink/
+	cp -Rn /opt-start/DVBLink/* /opt/DVBLink/
 fi
 
 # Start
