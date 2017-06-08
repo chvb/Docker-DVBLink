@@ -10,12 +10,6 @@ RUN apt-get update && apt-get install lsof sysstat wget iproute2 iputils-ping op
 ## download and install DVBLink
 RUN wget -O dvblink-server-pc-linux-ubuntu-64bit.deb http://download.dvblogic.com/9283649d35acc98ccf4d0c2287cdee62/ && \
     dpkg -i dvblink-server-pc-linux-ubuntu-64bit.deb && apt-get install -f && rm -f dvblink-server-pc-linux-ubuntu-64bit.deb
-
-# cleanup
- rm -rf \
-	/tmp/* \
-	/var/lib/apt/lists/* \
-	/var/tmp/*
     
 ## Openssh Server and supervisord
 RUN mkdir -p /var/log/supervisord
