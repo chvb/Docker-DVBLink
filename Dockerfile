@@ -47,4 +47,4 @@ CMD ["-c", "/etc/supervisor/conf.d/supervisord.conf"]
 EXPOSE 22 39876 8100
 
 # set Directories
-VOLUME ["//usr/local/bin/dvblink", "/recordings", "/data"]
+VOLUME ["/usr/local/bin/dvblink", "/recordings", "/data"]
