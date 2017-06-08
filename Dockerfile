@@ -25,13 +25,13 @@ ADD /etc/init.d/dvblink.sh /etc/init.d/dvblink.sh
 RUN chmod +x /etc/init.d/dvblink.sh
 
 ## Prepare start ##
-RUN mkdir /opt-start && mv /usr/local/bin/dvblink /opt-start && mv /opt/DVBLink /opt-start
+RUN mkdir /opt-start && mv /usr/local/bin/dvblink/config /opt-start && mv /opt/DVBLink /opt-start
 
 # Expose the default portonly 39876 is nessecary for admin access 
 EXPOSE 22 39876 8100
 
 # set Directories
-VOLUME ["/opt/DVBLink","/usr/local/bin/dvblink", "/recordings"]
+VOLUME ["/opt/DVBLink","/usr/local/bin/dvblink/config", "/recordings"]
 
 # Startup
 ENTRYPOINT ["/usr/bin/supervisord"]
