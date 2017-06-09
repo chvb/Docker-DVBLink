@@ -6,13 +6,13 @@ chmod -R 777 /opt-start/DVBLink
 chmod -R 777 /opt-start/dvblink
 
 # Prepare DVBLink bin
-if [ -z "`ls /usr/local/bin/dvblink/config --hide='lost+found'`" ]
+if [ -z "`ls /usr/local/bin/dvblink --hide='lost+found'`" ]
 then
-	cp -R /opt-start/config/* /usr/local/bin/dvblink/config
+	cp -R /opt-start/dvblink/* /usr/local/bin/dvblink
 fi
-if [ ! -f "/usr/local/bin/dvblink/config/dvblink_settings.xml" ]
+if [ ! -f "/usr/local/bin/dvblink/start.sh" ]
 then
-	cp -Rn /opt-start/config/* /usr/local/bin/dvblink/config/
+	cp -Rn /opt-start/dvblink/* /usr/local/bin/dvblink/
 fi
 
 # Prepare DVBLink bin
