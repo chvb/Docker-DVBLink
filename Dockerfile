@@ -24,10 +24,6 @@ ADD /etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.c
 ADD /etc/init.d/dvblink.sh /etc/init.d/dvblink.sh
 RUN chmod +x /etc/init.d/dvblink.sh
 
-## DBus start script
-ADD /etc/init.d/pidremove.sh /etc/init.d/pidremove.sh
-RUN chmod +x /etc/init.d/pidremove.sh
-
 ## Prepare start ##
 RUN mkdir /opt-start && mv /usr/local/bin/dvblink/config /opt-start && mv /opt/DVBLink /opt-start
 
