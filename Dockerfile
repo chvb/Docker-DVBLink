@@ -31,7 +31,7 @@ RUN mkdir /opt-start && mv /usr/local/bin/dvblink/config /opt-start && mv /opt/D
 EXPOSE 22 39876 8100
 
 # set Directories
-VOLUME ["/opt/DVBLink","/usr/local/bin/dvblink/config", "/recordings"]
+VOLUME ["/opt/DVBLink","/usr/local/bin/dvblink", "/recordings"]
 
 # Startup
 ENTRYPOINT ["/usr/bin/supervisord"]
