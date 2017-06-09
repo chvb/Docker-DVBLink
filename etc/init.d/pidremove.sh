@@ -1,3 +1,3 @@
 #!/usr/bin/with-contenv bash
 
-rm /var/run/dbus/pid
+sudo rm /var/run/dbus/pid
