@@ -19,8 +19,8 @@ Everything else is splitted up by DVBLogic to different files.
 Currently the volumes are:
 
 * `/recordings` - Recordings folder. You might have to point it here. **Required**
-* `/data` - Where all xmltv, transponders, playlists etc is located. **Required**
-* `/config` - Config folder. **Required**
+* `/opt/DVBLink` - Where all xmltv, transponders, playlists etc is located. **Required**
+* `/usr/local/bin/dvblink` - Config folder. **Required**
 
 ## Ports
 
